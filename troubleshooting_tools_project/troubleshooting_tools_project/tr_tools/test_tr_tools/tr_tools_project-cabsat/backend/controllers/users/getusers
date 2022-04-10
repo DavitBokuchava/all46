@@ -1,0 +1,94 @@
+// package users
+
+// import (
+// 	"backend/Middlewares/decodeToken"
+// 	tkn "backend/Middlewares/jwtverify"
+// 	"backend/database"
+// 	"backend/structs"
+// 	"encoding/json"
+// 	"fmt"
+// 	"log"
+// 	"net/http"
+// )
+
+// func GetUsers(w http.ResponseWriter, r *http.Request) {
+// 	var resp structs.RespondUser
+// 	if r.Method != "GET" {
+// 		resp = structs.RespondUser{Success: false, Err: "FATAL ERROR getusers"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	tokenString := r.Header.Get("Token")
+// 	fmt.Println(tokenString, "   @#$%@#$%#@$^%@#$^#@$^#@$^  tokenString")
+// 	checktoken := tkn.JwtVerify(tokenString)
+// 	if checktoken == false {
+// 		resp = structs.RespondUser{Success: false, Permission: false, Err: "Log in"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	success, user := decodeToken.DecodeToken(tokenString)
+// 	if success == false || user.Role != "admin" {
+// 		resp = structs.RespondUser{Success: false, Permission: false, Err: "You have not administator permision"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	db := database.OpenConnection()
+// 	// txt := ""
+// 	// var arr []string
+// 	// arr = append(arr, "53", "52")
+// 	// for i := 0; i < len(arr); i++ {
+// 	// 	if i == len(arr)-1 {
+// 	// 		txt += arr[i]
+// 	// 	} else {
+// 	// 		txt += arr[i] + ","
+// 	// 	}
+
+// 	// }
+// 	// id := " WHERE id IN (" + txt + ")"
+// 	// fmt.Println(id, " %#@$%@#% filter") id,user_name,pass_word,role,group_team,block, commands
+// 	rows, err := db.Query("SELECT * FROM testtestusers")
+// 	if err != nil {
+// 		log.Fatal(err)
+// 		resp = structs.RespondUser{Success: false, Permission: true, Err: "DATABASE CONNECTION PROBLEM"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp.Err, "DATA BASE PROBLEM")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	var people []structs.PersonDB
+// 	for rows.Next() {
+// 		var person structs.PersonDB
+// 		// str, err := bcrypting.HashItem(&person.Password)
+// 		// fmt.Println(str, err, "@#$%@#^##   str,err")
+// 		rows.Scan(&person.Id, &person.Username, &person.Password, &person.Role, &person.GroupTeam, &person.DeviceUsername, &person.DevicePassword, &person.Block, &person.Commands)
+// 		people = append(people, person)
+// 	}
+
+// 	fmt.Println(people, "people,people,people,people,people,")
+// 	// if len(people) == 0 {
+// 	// 	resp = structs.TestRespondUser{Success: false, Err: "There are not users"}
+
+// 	// 	errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 	// 	fmt.Println(resp.Err, "WRONG username")
+// 	// 	w.Header().Set("Content-Type", "application/json")
+// 	// 	w.Write(errorss)
+// 	// 	return
+// 	// }
+// 	resp = structs.RespondUser{Success: true, Permission: true, Err: "", Data: people}
+// 	getdata, _ := json.MarshalIndent(resp, "", "\t")
+// 	w.Header().Set("Content-Type", "application/json")
+// 	w.Write(getdata)
+
+// 	defer rows.Close()
+// 	defer db.Close()
+// }

@@ -1,0 +1,231 @@
+/* * {
+    box-sizing: border-box;
+  }
+   */
+   .row {
+    display: flex;
+    margin-top:10px;
+  }
+
+  /* Create two unequal columns that floats next to each other */
+  .column {
+    flex:1;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    height: 700px;  
+  }
+  
+  .left {
+    width:65%;
+    padding:30px;
+    margin: 5px;
+  }
+  
+
+  
+  
+  /* CLI OUTPUT */
+
+  #container {
+    background-color: #000000;
+    width: 100%;
+    height:525px;
+    overflow:auto;
+    padding: 3em;
+    border-radius: 5px;
+  }
+  
+  #content {
+    color: #ffffff;
+    font-size: 18px;
+    font-family: monospace;
+    
+  }
+  
+  /* command line side */
+
+  .right {
+    width:35%;
+    padding:5px;
+    margin: 5px;
+  }
+  .buttonsList div{
+    flex:row;
+    text-align: center;
+    padding:5px;
+    margin:2px auto;
+    width:100%;
+    overflow: auto;
+    max-height:725px;
+  }
+
+  .buttonsList div{
+    padding:5px;
+    margin:10px;
+    height:50px;
+    justify-content: center;
+    cursor: pointer;
+    
+    border-radius: 5px;
+  }
+  .input input.hov:hover{
+    background-color: rgb(164, 235, 223);
+    color:black
+  }
+/* #04A5DE;*/
+  .formContainer{
+    margin: 10px;
+    height:150px;
+  }
+  .input input{
+    text-align: center;
+    background-color: #2b75ae; 
+    color:white;
+    line-height: 1.5;
+    font-size: 1rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 8px 52px 8px 10px;
+    transition: all 200ms ease;
+    width:100%;
+    margin:5px;
+  }
+  .input input.disabled{
+    background-color: whitesmoke;
+    color:black;
+  }
+
+/////////////////////////////////////////////////////
+/////////////////////pagination \\\\\\\\\\\\\\\\\\\\
+import React from 'react'
+import st from './style.module.css';
+
+const Pagination = ({page,from,to,rowsPerPage,all,setPage})=>{
+    console.log(page >= Math.ceil(all / rowsPerPage))
+
+    function handleFirstPageButtonClick(){
+
+    }
+    function handleBackButtonClick(){
+      
+    }
+    function handleNextButtonClick(){
+      
+    }
+    function handleBackButtonClick(){
+      
+    }
+    
+  return(
+  <>
+    <div className={st.container}>
+      <div className = {st.txt}>
+        Rows per page:
+      </div>
+      <div>
+        {`${from} - ${to}`}
+      </div>
+      <div>
+         {`of   ${all}`}
+      </div>
+        
+        <div className = {st.arrows}>
+          <button onClick = {()=>setPage(0)} disabled = {page === 0} >❮❮</button>
+        </div>
+        <div className = {st.arrows}>
+          <button
+            onClick = {()=>setPage(val=>val-1)} 
+            disabled = {page === 0} >
+              ❮
+          </button>
+        </div>
+        <div className = {st.arrows}>
+          <button 
+            onClick = {()=>setPage(val=>val+1)} 
+            disabled = {page >= Math.ceil(all / rowsPerPage) - 1}>
+              ❯
+          </button>
+        </div>
+        <div className = {st.arrows}>
+          <button 
+            onClick = {()=> setPage(Math.ceil(all / rowsPerPage) - 1)} 
+            disabled = {page >= Math.ceil(all / rowsPerPage) - 1} >
+              ❯❯
+          </button>
+        </div>
+    </div>
+  </>
+    )
+}
+export default Pagination;
+
+
+// // export default  function TablePaginationActions(props) {
+// //     // const classes = useStyles1();
+// //     // const theme = useTheme();
+// //     const { count, page, rowsPerPage, onChangePage } = props;
+// //     const handleFirstPageButtonClick = (event) => {
+// //       onChangePage(event, 0);
+// //     };
+  
+// //     const handleBackButtonClick = (event) => {
+// //       onChangePage(event, page - 1);
+// //     };
+  
+// //     const handleNextButtonClick = (event) => {
+// //       onChangePage(event, page + 1);
+// //     };
+  
+// //     const handleLastPageButtonClick = (event) => {
+// //       onChangePage(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+// //     };
+  
+// //     return (
+// //       <div className={classes.root}>
+// //         <IconButton
+// //           onClick={handleFirstPageButtonClick}
+// //           disabled={page === 0}
+// //           aria-label="first page"
+// //         >
+// //           {theme.direction === 'rtl' ? <LastPage/> : <FirstPage />}
+// //         </IconButton>
+// //         <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+// //           {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+// //         </IconButton>
+// //         <IconButton
+// //           onClick={handleNextButtonClick}
+// //           disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+// //           aria-label="next page"
+// //         >
+// //           {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+// //         </IconButton>
+// //         <IconButton
+// //           onClick={handleLastPageButtonClick}
+// //           disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+// //           aria-label="last page"
+// //         >
+// //           {theme.direction === 'rtl' ? <FirstPage /> : <LastPage />}
+// //         </IconButton>
+// //       </div>
+// //     );
+// //   }
+  
+// //   TablePaginationActions.propTypes = {
+// //     count: PropTypes.number.isRequired,
+// //     onChangePage: PropTypes.func.isRequired,
+// //     page: PropTypes.number.isRequired,
+// //     rowsPerPage: PropTypes.number.isRequired,
+// //   };
+  
+// /////////////// ==== props ==== \\\\\\\\\\
+// /*{ <TablePagination 
+//               rowsPerPageOptions={[ 10,25,50,100]}
+//               colSpan={12}
+//               count={parseInt(getCloseDamagesHistoryState.length,10)}
+//               rowsPerPage={rowsPerPage}
+//               page={page}
+//               onChangePage={handleChangePage}
+//               onChangeRowsPerPage={handleChangeRowsPerPage}
+//               ActionsComponent={TablePaginationActions}  /> */}

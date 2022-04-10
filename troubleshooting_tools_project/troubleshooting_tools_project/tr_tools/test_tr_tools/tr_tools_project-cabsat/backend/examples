@@ -1,0 +1,362 @@
+// package main
+
+// import (
+// 	"fmt"
+// 	"strings"
+// )
+
+// //userExampleQueryText := "user_id IN ()"
+
+// func Test() {
+// 	// fmt.Println("HI")
+// 	// //fmt.Println(getusers.Getusers(http.ResponseWriter, http.Request))
+// 	// http.HandleFunc("/getuser", getusers.Getusers)
+// 	// //fmt.Println(helper.Helpone("avoeHelper"))
+// 	// http.ListenAndServe(":8081", nil)
+// 	x := "one,two"
+// 	y := "one"
+// 	arr := []string{"1", "2", "3", "4", "5"}
+// 	fmt.Println("The elements of the array are: ")
+// 	arr = append(arr, "5")
+// 	fmt.Println(arr, "#### arr")
+// 	// using for loop
+// 	txt := "("
+// 	//t := fmt.Sprintf("%s%d", "$", 5)
+// 	//var j int
+// 	j := 0
+// 	for i := 0; i < len(arr); i++ {
+// 		fmt.Println(i, len(arr), " +++++  i,len(arr)")
+// 		//j = i + 1
+// 		if i < len(arr)-1 {
+
+// 			txt = txt + fmt.Sprintf("%s%d%s", "$", i+1+j, ",")
+// 			//return
+// 		} else {
+// 			txt = txt + fmt.Sprintf("%s%d", "$", i+1+j)
+// 		}
+
+// 	}
+// 	j = len(arr)
+// 	for i := 0; i < len(arr); i++ {
+// 		fmt.Println(i, len(arr), " +++++  i,len(arr)")
+// 		//j = i + 1
+// 		if i < len(arr)-1 {
+
+// 			txt = txt + fmt.Sprintf("%s%d%s", "$", i+j+1, ",")
+// 			//return
+// 		} else {
+// 			txt = txt + fmt.Sprintf("%s%d", "$", i+j+1)
+// 		}
+
+// 	}
+// 	txt = txt + ")"
+
+// 	fmt.Println(len(strings.Split(x, ",")), strings.Split(x, ","))
+// 	fmt.Println(x, y, txt)
+// }
+
+// type FiltersValues struct {
+// 	Date         []string // two dates array from to
+// 	User         []string
+// 	CustomerId   []string // maybe single but it must be array?
+// 	MobileNumber []string // maybe single but it must be array?
+// 	Olt          []string
+// 	IpAddress    []string
+// 	Command      []string
+// 	Vendor       []string // two vendors ?
+// }
+
+// type QueryFilterText struct { // to generate  quering texts
+// 	DateText         string
+// 	UserText         string
+// 	CustomerIdText   string
+// 	MobileNumberText string
+// 	OltText          string
+// 	IpAddressText    string
+// 	CommandText      string
+// 	VendorText       string
+// }
+
+// //var arr
+
+// //1 create table commandlist (id not null, command_name,vendor(zte,huawei,mobile),technology (mobile,olt), hide boolean, timestamp )
+// //2 create table vendor
+// //3 create table olt (id,olt_name,vendor,ipaddress,hide boolean)
+// //4 create table users (id, user_name, role (admin,user), group(???), block(true/false,boolean),)
+// //5 id,user_id(frnKey),customer,number,olt(frnKey),ipaddress?,command(frnKey),vendor(frnKey),position,output,logtime
+// func test() {
+// 	dateExampleQueryText := "AND ( logtime BETWEEN 'from' AND 'to' )"
+// 	userExampleQueryText := " AND user_id IN ()"
+// 	customerIdExampleQueryText := " AND customer ILIKE '%${a}%'"
+// 	mobileNumberExampleQueryText := " AND number ILIKE '%${a}%'"
+// 	oltExampleQueryText := " AND olt IN ()"
+// 	ipAddressExampleQueryText := "And ipaddress IN ()"
+// 	commandExampleQueryText := "AND command IN ()"
+
+// 	fmt.Println(
+// 		userExampleQueryText,
+// 		customerIdExampleQueryText,
+// 		dateExampleQueryText,
+// 		mobileNumberExampleQueryText,
+// 		oltExampleQueryText,
+// 		ipAddressExampleQueryText,
+// 		commandExampleQueryText,
+// 	)
+// }
+
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+type FilterText struct { // to generate  quering texts
+	DateText         string
+	UserText         string
+	CustomerIdText   string
+	MobileNumberText string
+	OltText          string
+	IpAddressText    string
+	CommandText      string
+	VendorText       string
+}
+type QueryFilterText struct { // to generate  quering texts
+	DateText         string
+	UserText         string
+	CustomerIdText   string
+	MobileNumberText string
+	OltText          string
+	IpAddressText    string
+	CommandText      string
+	VendorText       string
+}
+type FiltersValues struct {
+	Date         string // two dates array from to
+	User         string
+	CustomerId   string // maybe single but it must be array?
+	MobileNumber string // maybe single but it must be array?
+	Olt          string
+	IpAddress    string
+	Command      string
+	Vendor       string // two vendors ?
+}
+
+func main() {
+	result := defineFilters("one;two", "52;53;54;55", "IO", "514", "olt-22-1", "172.16.78", "show macs", "null")
+	fmt.Println(result, " ##########$$$$$$$#$#$#$#$ result")
+}
+func defineFilters(
+	date string,
+	user string,
+	customer string,
+	number string,
+	olt string,
+	ipaddress string,
+	command string,
+	vendor string) string {
+	filterQuery := ""
+	var filters FilterText
+	var queryStruct FiltersValues
+	filters = FilterText{DateText: "t-20;t-21", UserText: "53;52;51;54;56", CustomerIdText: "IO", MobileNumberText: "514", OltText: "olt-22-1", IpAddressText: "null", CommandText: "null", VendorText: "null"}
+	fmt.Println(&filters)
+	if user != "null" {
+		txt := makeValues(user)
+		//queryStruct = FiltersValues{Date: " AND user_id IN (" + txt + ")"}
+		filterQuery += " AND user_id IN (" + txt + ")"
+	}
+	if olt != "null" {
+		txt := makeValues(olt)
+		//queryStruct = FiltersValues{Date: " AND olt IN (" + txt + ")"}
+		filterQuery += " AND olt IN (" + txt + ")"
+	}
+	//VendorText
+
+	if date != "null" {
+		txt := makeDateValues(date)
+		//queryStruct = FiltersValues{Date: txt}
+		filterQuery += txt
+	}
+	if customer != "null" {
+		//queryStruct = FiltersValues{CustomerId: " AND customer ILIKE '%${" + filters.CustomerIdText + "}%'"}
+		filterQuery += " AND customer ILIKE '%${" + customer + "}%'"
+	}
+	if number != "null" {
+		//queryStruct = FiltersValues{MobileNumber: " AND number ILIKE '%${" + filters.MobileNumberText + "}%'"}
+		filterQuery += " AND number ILIKE '%${" + number + "}%'"
+	}
+	if ipaddress != "null" {
+		txt := makeValues(ipaddress)
+		//queryStruct = FiltersValues{MobileNumber: " AND ipaddress ILIKE '%${" + filters.IpAddressText + "}%'"}
+		filterQuery += "And ipaddress IN (" + txt + ")"
+	}
+	//CommandText
+	if command != "null" {
+		txt := makeValues(command)
+		queryStruct = FiltersValues{MobileNumber: " AND command ILIKE '%${" + filters.IpAddressText + "}%'"}
+		filterQuery += " AND command IN (" + txt + ")"
+	}
+	if vendor != "null" {
+		txt := makeValues(vendor)
+		filterQuery += " AND vendor IN (" + txt + ")"
+	}
+	if filterQuery != "" {
+		filterQuery = " WHERE 1=1 " + filterQuery
+	}
+
+	fmt.Println(queryStruct, " ###############  queryStruct")
+	fmt.Println(filterQuery, " &&&&&&&&&&&&&&&&&&& filterQuery")
+	return filterQuery
+}
+func makeValues(f string) string {
+	txt := ""
+	filter := strings.Split(f, ";")
+	for i := 0; i < len(filter); i++ {
+		if i < len(filter)-1 {
+			txt += filter[i] + ","
+		} else {
+			txt += filter[i]
+		}
+	}
+	return txt
+}
+func makeDateValues(f string) string {
+	txt := ""
+	filter := strings.Split(f, ";")
+	txt = " AND ( logtime BETWEEN " + "'" + filter[0] + "'" + " AND " + "'" + filter[1] + "'" + ")"
+	return txt
+}
+
+func test(object QueryFilterText) {
+
+	dateExampleQueryText := "AND ( logtime BETWEEN 'from' AND 'to' )"
+	userExampleQueryText := " AND user_id IN ()"
+	customerIdExampleQueryText := " AND customer ILIKE '%${a}%'"
+	mobileNumberExampleQueryText := " AND number ILIKE '%${a}%'"
+	oltExampleQueryText := " AND olt IN ()"
+	ipAddressExampleQueryText := "And ipaddress IN ()"
+	commandExampleQueryText := "AND command IN ()"
+
+	fmt.Println(
+		userExampleQueryText,
+		customerIdExampleQueryText,
+		dateExampleQueryText,
+		mobileNumberExampleQueryText,
+		oltExampleQueryText,
+		ipAddressExampleQueryText,
+		commandExampleQueryText)
+	return
+}
+
+//type
+// func main() {
+// 	filterQuery := ""
+// 	var filters FilterText
+// 	var queryStruct FiltersValues
+// 	filters = FilterText{DateText: "t-20;t-21", UserText: "53;52;51;54;56", CustomerIdText: "IO", MobileNumberText: "514", OltText: "olt-22-1", IpAddressText: "null", CommandText: "null", VendorText: "null"}
+// 	fmt.Println(&filters)
+// 	if filters.UserText != "null" {
+// 		txt := makeValues(filters.UserText)
+// 		//queryStruct = FiltersValues{Date: " AND user_id IN (" + txt + ")"}
+// 		filterQuery += " AND user_id IN (" + txt + ")"
+// 	}
+// 	if filters.OltText != "null" {
+// 		txt := makeValues(filters.OltText)
+// 		//queryStruct = FiltersValues{Date: " AND olt IN (" + txt + ")"}
+// 		filterQuery += " AND olt IN (" + txt + ")"
+// 	}
+// 	//VendorText
+// 	if filters.VendorText != "null" {
+// 		txt := makeValues(filters.VendorText)
+// 		//queryStruct = FiltersValues{Date: " AND olt IN (" + txt + ")"}
+// 		filterQuery += " AND olt IN (" + txt + ")"
+// 	}
+// 	if filters.DateText != "null" {
+// 		txt := makeDateValues(filters.DateText)
+// 		//queryStruct = FiltersValues{Date: txt}
+// 		filterQuery += txt
+// 	}
+// 	if filters.CustomerIdText != "null" {
+// 		//queryStruct = FiltersValues{CustomerId: " AND customer ILIKE '%${" + filters.CustomerIdText + "}%'"}
+// 		filterQuery += " AND customer ILIKE '%${" + filters.CustomerIdText + "}%'"
+// 	}
+// 	if filters.MobileNumberText != "null" {
+// 		//queryStruct = FiltersValues{MobileNumber: " AND number ILIKE '%${" + filters.MobileNumberText + "}%'"}
+// 		filterQuery += " AND number ILIKE '%${" + filters.MobileNumberText + "}%'"
+// 	}
+// 	if filters.IpAddressText != "null" {
+// 		//queryStruct = FiltersValues{MobileNumber: " AND ipaddress ILIKE '%${" + filters.IpAddressText + "}%'"}
+// 		filterQuery += " AND ipaddress ILIKE '%${" + filters.IpAddressText + "}%'"
+// 	}
+// 	//CommandText
+// 	if filters.CommandText != "null" {
+// 		queryStruct = FiltersValues{MobileNumber: " AND command ILIKE '%${" + filters.IpAddressText + "}%'"}
+// 		filterQuery += " AND command ILIKE '%${" + filters.IpAddressText + "}%'"
+// 	}
+// 	if filterQuery != "" {
+// 		filterQuery = " WHERE 1=1 " + filterQuery
+// 	}
+// 	fmt.Println(queryStruct, " ###############  queryStruct")
+// 	fmt.Println(filterQuery, " &&&&&&&&&&&&&&&&&&& filterQuery")
+// }
+//1 create table commandlist (id not null, command_name,vendor(zte,huawei,mobile),technology (mobile,olt), hide boolean, timestamp )
+//2 create table vendor
+//3 create table olt (id,olt_name,vendor,ipaddress,hide boolean)
+//4 create table users (id, user_name, role (admin,user), group(???), block(true/false,boolean),)
+//5 id,user_id(frnKey),customer,number,olt(frnKey),ipaddress?,command(frnKey),vendor(frnKey),position,output,logtime
+
+// func testOne(a string) {
+
+// }
+
+// // fmt.Println("HI")
+// // //fmt.Println(getusers.Getusers(http.ResponseWriter, http.Request))
+// // http.HandleFunc("/getuser", getusers.Getusers)
+// // //fmt.Println(helper.Helpone("avoeHelper"))
+// // http.ListenAndServe(":8081", nil)
+// x := "one,two"
+// y := "one"
+// arr := []string{"1", "2", "3", "4", "5"}
+// fmt.Println("The elements of the array are: ")
+// arr = append(arr, "5")
+// fmt.Println(arr, "#### arr")
+// // using for loop
+// txt := "("
+// //t := fmt.Sprintf("%s%d", "$", 5)
+// //var j int
+// j := 0
+// for i := 0; i < len(arr); i++ {
+// 	fmt.Println(i, len(arr), " +++++  i,len(arr)")
+// 	//j = i + 1
+// 	if i < len(arr)-1 {
+
+// 		txt = txt + fmt.Sprintf("%s%d%s", "$", i+1+j, ",")
+// 		//return
+// 	} else {
+// 		txt = txt + fmt.Sprintf("%s%d", "$", i+1+j)
+// 	}
+
+// }
+// j = len(arr)
+// for i := 0; i < len(arr); i++ {
+// 	fmt.Println(i, len(arr), " +++++  i,len(arr)")
+// 	//j = i + 1
+// 	if i < len(arr)-1 {
+
+// 		txt = txt + fmt.Sprintf("%s%d%s", "$", i+j+1, ",")
+// 		//return
+// 	} else {
+// 		txt = txt + fmt.Sprintf("%s%d", "$", i+j+1)
+// 	}
+
+// }
+// txt = txt + ")"
+
+// fmt.Println(len(strings.Split(x, ",")), strings.Split(x, ","))
+// fmt.Println(x, y, txt)
+// //arr1 := test("one;two", "one;two", "one;two")
+// //fmt.Println(arr1, " *$%&*$&$&$& arr1arr1arr1arr1arr1arr1")
+// fmt.Println(len(strings.Split(x, ",")), strings.Split(x, ","))
+// fmt.Println(x, y, txt)
+// //arr1 := test("one;two", "one;two", "one;two")
+// //fmt.Println(arr1, " *$%&*$&$&$& arr1arr1arr1arr1arr1arr1")

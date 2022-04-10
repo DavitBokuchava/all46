@@ -1,0 +1,101 @@
+// func mobile(w http.ResponseWriter, r *http.Request) {
+// 	var out bytes.Buffer
+// 	var stderr bytes.Buffer
+
+// 	query := r.URL.Query()
+// 	typeValue := query.Get("type")
+// 	value := query.Get("value")
+// 	command := query.Get("command")
+
+// 	println(command, " ### command", typeValue, " ### typeValue", value, " ### value")
+// 	if typeValue == "" || value == "" || command == "" {
+// 		replayOutput := out.String()
+// 		//log.Println(replayOutput)
+// 		replayOutput = strings.Replace(replayOutput, "\n", "<br>", -1)
+// 		//log.Println(replayOutput)
+
+// 		fmt.Fprintf(w,
+// 			"<div style = "+" 'text-align:center'"+"><a style = "+"'text-decoration:none;'"+"href=\"/\"><h3> GO TO HOME PAGE <h3/></a> <div>"+
+// 				"%s",
+// 			replayOutput)
+
+// 		return
+// 	}
+
+// 	cmd := exec.Command("python", "external_scripts/mobileshwcommand/mobile.py", typeValue, value)
+// 	//println(value, " === test", command, " === command ", typeValue, " === typeValue")
+
+// 	cmd.Stdout = &out
+// 	cmd.Stderr = &stderr
+
+// 	err := cmd.Run()
+// 	if err != nil {
+// 		fmt.Println(err, "ERRRORRR ONE")
+// 	}
+// 	fmt.Printf("Command output: %q\n", out.String())
+// 	fmt.Println(out.String(), " ==== IPPPPPP")
+// 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+// 	w.Header().Set("Access-Control-Allow-Origin", "*")
+// 	w.Write([]byte(out.String()))
+// }
+
+// func getPing(w http.ResponseWriter, r *http.Request) {
+// 	//test1 := r.URL.Path
+// 	if r.Method == "GET" {
+// 		query := r.URL.Query()
+// 		filters := query.Get("filters")
+// 		cmd := exec.Command("python", "external_scripts/scripts/script.py", filters)
+// 		//println(url, " ==== url ==== ", test1, " ===== URL", url, " ==== generated URL", FSPATH+strings.TrimPrefix(path.Clean(r.URL.Path), "/"))
+// 		var out bytes.Buffer
+// 		var stderr bytes.Buffer
+// 		cmd.Stdout = &out
+// 		cmd.Stderr = &stderr
+
+// 		err := cmd.Run()
+// 		if err != nil {
+// 			fmt.Println(err, "ERRRORRR")
+// 		}
+// 		fmt.Printf("Command output: %q\n", out.String())
+// 		fmt.Println(out.String(), " ==== IPPPPPP")
+// 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+// 		w.Header().Set("Access-Control-Allow-Origin", "*")
+// 		w.Write([]byte(out.String()))
+// 	} else {
+// 		println("error")
+// 	}
+// }
+
+// type UserRole struct {
+// 	Id       int
+// 	Username string
+// 	Password string
+// 	Role     string
+// }
+
+// type Person struct {
+// 	Id       int    `json:"id"`
+// 	Username string `json:"username"`
+// 	Password string `json:"password"`
+// 	Role     string `json:"role"`
+// }
+
+//http.HandleFunc("/getuser", getusers.Getusers)
+//http.HandleFunc("/updateuser", updateUser)
+//http.HandleFunc("/updateusertest", updateUserTest)
+//http.HandleFunc("/updateusertest", updateUserTest)
+//http.HandleFunc("/showcommands", showcommand)
+//http.ListenAndServe(":8090", nil)
+// m2 := map[string]interface{}{
+// 	"key1": "string",
+// 	"key2": "int",
+// }
+// fmt.Println(Keys(m2))
+// func Keys(m map[string]interface{}) []interface{} {
+// 	keys := make([]interface{}, len(m))
+// 	i := 0
+// 	for k := range m {
+// 		keys[i] = k
+// 		i++
+// 	}
+// 	return keys
+// }

@@ -1,0 +1,750 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+/* box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 ); */
+
+table {
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0ms;
+    background-color: #fff;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    /* width: 100%; */
+    max-width: 100%;
+    white-space:pre-line;
+    /* border: 1px solid #b9c0c8; */
+    background: #fff;
+    /* box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    width: 100%;
+    overflow: auto;
+  }
+   /* #04a5de #127bb7 */
+   
+  th{
+    background-color: #4472C4;
+    color:whitesmoke;
+    padding: 8px;
+    height:50px;
+    /* border: 1px solid #b9c0c8; */
+  }
+  tr{
+    /* border: 1px solid #b9c0c8; */
+    /* border:1px solid rgba(224, 224, 224, 1); */
+    text-align: center;
+    padding: 10px;/*8*/
+    white-space: break-spaces;
+  }
+  td {
+    /* border: 1px solid #b9c0c8; */
+    text-align: center;
+    padding: 8px;
+    white-space: break-spaces;
+    border-bottom: 1px solid rgba(224, 224, 224, 1)
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+
+  ///////////////// module.css \\\\\
+
+  *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.wrap{
+    /* font-family: Helvetica; */
+    /* -webkit-font-smoothing: antialiased; */
+    /* background: rgba( 71, 147, 227, 1); */
+    /* width:100%; */
+    background-color: #fff;
+    color: #444;
+    justify-content: center;
+    text-align: center;
+    /* max-width:1440px; */
+    
+} 
+
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.tableWrapper{
+    margin: 20px 30px 30px 20px;
+    /* box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 ); */
+}
+
+.flTable {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    /* max-width: 100%; */
+    /* white-space:normal;  */
+    /* nowrap; */
+    background-color: white;
+}
+
+.flTable td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.flTable td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.flTable thead th {
+    color: #ffffff;
+    background: black;
+    height:50px;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: red;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+/* @media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+} */
+
+
+/////////// html table\\\\\\\\\\\\\\\
+
+ // import React from 'react';
+// import st from './style.module.css'
+// import './table.css'
+
+
+// const Table = ()=>{
+//     return (
+//         <>  
+//             <div className = {st.wrap}>
+//             <h2> Users Table</h2>
+//             <div className={st.tableWrapper}>
+//                 <table className={st.flTable}>
+//                     <thead>
+//                     <tr>
+//                         <th>Headerbshfdshjfdjdafjdaj 1</th>
+//                         <th>Header 2</th>
+//                         <th>Header 3</th>
+//                         <th>Header 4</th>
+//                         <th>Header 5</th>
+//                         <th>Header 6</th>
+//                         <th>Header 7</th>
+//                         <th>Header 8</th>
+//                         <th>Header 9</th>
+//                         <th>Header 10</th>
+   
+
+//                     </tr>
+//                     </thead>
+//                     <tbody>
+//                     <tr>
+//                         <td>ჯჰგკჯჰლკჯკლ </td>
+//                         <td>Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1</td>
+//                         <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 2 Content 1 Content 1</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                         <td>Content 2</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                         <td>Content 3</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                         <td>Content 4</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                         <td>Content 5</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                         <td>Content 6</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                         <td>Content 7</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                         <td>Content 8</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                         <td>Content 9</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+//                     <tr>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10</td>
+//                         <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+//                         <td>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>
+//                             <div> Content 10</div>    
+//                         </td>
+//                     </tr>
+                    
+//                     </tbody>
+//                 </table>
+//             </div>
+//             </div>
+//         </>
+//     )
+// }
+// export default Table;
+
+/**
+ *         <div className = {st.wrap}>
+            <h2> Users Table</h2>
+            <div className={st.tableWrapper}>
+                <table className={st.flTable}>
+                    <thead>
+                    <tr>
+                        <th>Headerbshfdshjfdjdafjdaj 1</th>
+                        <th>Header 2</th>
+                        <th>Header 3</th>
+                        <th>Header 4</th>
+                        <th>Header 5</th>
+                        <th>Header 6</th>
+                        <th>Header 7</th>
+                        <th>Header 8</th>
+                        <th>Header 9</th>
+                        <th>Header 10</th>
+   
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ჯჰგკჯჰლკჯკლ </td>
+                        <td>Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1</td>
+                        <td>Content 1 Content 1 Content 1 Content 1 Content 1</td>
+                    </tr>
+                    <tr>
+                        <td>Content 2 Content 1 Content 1</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                        <td>Content 2</td>
+                    </tr>
+                    <tr>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                        <td>Content 3</td>
+                    </tr>
+                    <tr>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                        <td>Content 4</td>
+                    </tr>
+                    <tr>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                        <td>Content 5</td>
+                    </tr>
+                    <tr>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                        <td>Content 6</td>
+                    </tr>
+                    <tr>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                        <td>Content 7</td>
+                    </tr>
+                    <tr>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                        <td>Content 8</td>
+                    </tr>
+                    <tr>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                        <td>Content 9</td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10</td>
+                        <td>Content 10Content 10Content 10 Content 10 Content 10</td>
+                        <td>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>
+                            <div> Content 10</div>    
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+            </div>
+ */

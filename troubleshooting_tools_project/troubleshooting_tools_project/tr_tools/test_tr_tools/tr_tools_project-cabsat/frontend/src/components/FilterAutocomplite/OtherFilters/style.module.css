@@ -1,0 +1,142 @@
+.dropdown {
+  position: relative;
+  color: #333;
+  cursor: default;
+}
+
+.dropdown .arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: 0.3rem;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+.optionsBody{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  gap:5px;
+  font-size: 14px;
+}
+.checkBoxSpan{
+  width:10px;
+  height:10px;
+  background-color: #ffff;
+  border: 1px solid #2b75ae;
+}
+.checkedSpan{
+  background-color: #2b75ae;
+}
+
+.dropdown .arrow.open {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+
+.dropdown .selectedValue input {
+  line-height: 1.5;
+  font-size: 14px;
+  background-color: #fff;
+  /* border: 2px solid #2b75ae; */
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+  width: 100%;
+}
+
+.dropdown .options {
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 100;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dropdown .options.open {
+  display: block;
+}
+.inputWrapp{
+  position: relative;
+  width:100%;
+}
+
+.inputWrapp input{
+  line-height: 1.5;
+  font-size: 14px;
+  vertical-align: center;
+  color:#2b75ae;
+  background-color: #ffffff;
+  border: 1px solid #2b75ae;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  padding: 5px 5px 5px 5px;
+  transition: all 200ms ease;
+  width:100%;
+  height:37px;
+}
+.inputWrapp .cleanup {
+  height: 0;
+  position: absolute;
+  right: 30px;
+  top: 0.3rem;
+  width: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  color:#2b75ae;
+}
+
+.dropdown .option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.dropdown .option.selected,
+.dropdown .option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.outputWrapp{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  /* width:100%; */
+  align-items: flex-start;
+  align-content: center;
+  gap:1px;
+  /* font-size: 11px; */
+  
+}
+.outputItem{
+  border:1px solid white;
+  background-color: #999 ;
+  color:white;
+  cursor: pointer;
+  border-radius: 20px;
+  padding:5px;
+  /* color: #2b75ae; */
+  font-size: 0.6em;
+}

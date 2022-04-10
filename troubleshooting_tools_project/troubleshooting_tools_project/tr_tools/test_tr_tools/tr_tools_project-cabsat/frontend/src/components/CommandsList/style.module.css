@@ -1,0 +1,63 @@
+
+/* html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+} */
+.buttonsList {
+  /* flex:row; */
+  position: relative;
+  text-align: center;
+  padding:5px;
+  margin:2px 2px 2px 2px;
+  width:100%;
+  overflow: auto;
+  max-height:700px;
+}
+.buttonsList div{
+  padding:5px;
+  margin:5px;
+  height:50px;
+  justify-content: center;
+  cursor: none;
+  /* font-size: 10px; */
+  /* border-radius: 5px; */
+  /* box-sizing: border-box; */
+}
+.input{
+  position: relative;
+  cursor: none;
+}
+.input input:hover{
+  background-color: rgb(164, 235, 223);
+  color:black
+}
+.input input:focus {
+  background-color: rgb(164, 235, 223);
+  color:black;
+}
+/* #04A5DE;*/
+  
+.input input{
+  text-align: center;
+  background-color: #2b75ae; 
+  color:white;
+  line-height: 1.5;
+  /* font-size: 1rem; */
+  font-size: 14px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  padding: 15px;
+  transition: all 200ms ease;
+  width:100%;
+  text-decoration: none;
+  border:1px solid #2b75ae;
+}
+.input input.disabled{
+  background-color: whitesmoke;
+  color:#2b75ae;
+}
+

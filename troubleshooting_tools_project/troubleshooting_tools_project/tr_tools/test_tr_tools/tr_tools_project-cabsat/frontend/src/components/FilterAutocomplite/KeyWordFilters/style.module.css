@@ -1,0 +1,42 @@
+.inputWrapp{
+    position: relative;
+    width:100%;
+  }
+  
+  .inputWrapp input{
+    /* width: 0; */
+    /* flex:auto; */
+    /* position: absolute; */
+    line-height: 1.5;
+    font-size: 14px;
+    vertical-align: center;
+    color:#2b75ae;
+    background-color: #ffffff;
+    border: 1px solid #2b75ae;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: default;
+    outline: none;
+    padding: 5px 20px 5px 5px;
+    transition: all 200ms ease;
+    width:100%;
+    height:37px;
+  }
+  .inputWrapp .cleanup {
+    /* border-color: #999 transparent transparent; */
+    /* border-color:1px solid red; */
+    /* border-width: 5px 5px 0; */
+    /* content: "x"; */
+    /* display: block; */
+    height: 0;
+    /* margin-top: 0.3rem; */
+    position: absolute;
+    right: 15px;
+    top: 0.3rem;
+    width: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    /* font-weight: bolder; */
+    color:#2b75ae;
+    /* background-color: grey; */
+  }

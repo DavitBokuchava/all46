@@ -1,0 +1,93 @@
+// package users
+
+// import (
+// 	"backend/Middlewares/decodeToken"
+// 	tkn "backend/Middlewares/jwtverify"
+// 	"backend/controllers/middlewares"
+// 	"backend/database"
+// 	"backend/structs"
+// 	"encoding/json"
+// 	"fmt"
+// 	"net/http"
+// )
+
+// func AddUserTest(w http.ResponseWriter, r *http.Request) {
+// 	var addperson structs.TestPerson
+// 	var getperson structs.TestPerson
+// 	var resp structs.TestRespondUser
+// 	//var success structs.SuccessResult
+// 	if r.Method != "POST" {
+// 		resp = structs.TestRespondUser{Success: false, Err: "FATAL ERROR adduser"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	decoder := json.NewDecoder(r.Body)
+// 	tokenString := r.Header.Get("Token")
+// 	checktoken := tkn.JwtVerify(tokenString)
+// 	if checktoken == false {
+// 		resp = structs.TestRespondUser{Success: false, Permission: false, Err: "Log in"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	success, user := decodeToken.DecodeToken(tokenString)
+// 	if success == false || user.Role != "admin" {
+// 		resp = structs.TestRespondUser{Success: false, Permission: false, Err: "You have not administator permision"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "Log in")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	fmt.Println(success, user, " success, user")
+// 	fmt.Println(tokenString, checktoken, " tokenString")
+// 	err1 := decoder.Decode(&addperson)
+// 	fmt.Println(addperson, "addpersonaddpersonaddpersonaddpersonaddperson")
+// 	if err1 != nil {
+// 		fmt.Println("Error")
+// 		return
+// 	}
+
+// 	if addperson.Username == "" || addperson.Password == "" || addperson.Role == "" {
+// 		fmt.Println("err Add User")
+// 		return
+// 	}
+// 	status := middlewares.Checkusertoadduser(addperson.Username)
+// 	if status == false {
+// 		//success = structs.SuccessResult{success: false, err: "There is such user"}
+// 		resp = structs.TestRespondUser{Success: false, Permission: true, Err: "There is such user, try other one"}
+// 		errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 		fmt.Println(resp, "There is such user")
+// 		w.Header().Set("Content-Type", "application/json")
+// 		w.Write(errorss)
+// 		return
+// 	}
+// 	db := database.OpenConnection()
+// 	adduser := "INSERT INTO userstest (username,password,role,group_team,commands) values($1,$2,$3,$4,$5) RETURNING *"
+// 	fmt.Println(adduser, err1, addperson.GroupTeam, "adduser, err1, addperson.GroupTeam")
+// 	err := db.QueryRow(adduser, &addperson.Username, &addperson.Password, &addperson.Role, &addperson.GroupTeam, &addperson.Commands).Scan(&getperson.Id, &getperson.Username, &getperson.Password, &getperson.Role, &getperson.GroupTeam, &getperson.Commands, &getperson.Block)
+
+// 	if err != nil {
+// 		//log.Fatal(err, "asfasf")
+// 		fmt.Println(err, "err log")
+// 		return
+// 	}
+// 	//user, _ := json.MarshalIndent(getperson, "", "\t")
+// 	var data []structs.TestPerson
+// 	data = append(data, getperson)
+// 	resp = structs.TestRespondUser{Success: true, Permission: true, Err: "", Data: data}
+
+// 	errorss, _ := json.MarshalIndent(resp, "", "\t")
+// 	fmt.Println(resp, "There is such user")
+// 	w.Header().Set("Content-Type", "application/json")
+// 	w.Write(errorss)
+
+// 	//defer adduser.Close()
+// 	defer db.Close()
+
+// }
